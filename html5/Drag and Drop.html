@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Drag & Drop</title>
+		
+		<style>
+			#box {
+				width:300px;
+				height:150px;
+				padding:10px;
+				border:1px solid #ccc;
+			
+			}
+		</style>
+		
+		<script>
+			<!--to allow a drop into another element; we must prevent default handling of the element; this is done with the ev.preventDefault() method-->
+			function allowDrop(ev) {
+				ev.preventDefault();
+			}
+			
+			<!--dataTransfer.setData() method sets data type and value of the dragged data; data type = text, id is the element's ID ('drag1')-->
+			function drag(ev) {
+				ev.dataTransfer.setData("text",ev.target.id);
+			}
+			
+			<!--when dragged data is dropped, drop event occurs-->
+			function drop(ev) {
+				<!--preventDefault() prevents browser default handling of data (default is open link on drop)-->			
+				ev.preventDefault();
+				<!--get dragged data with dataTransfer.getData() method; will return any data that was set to the same type in the setData() method-->
+				var data = ev.dataTransfer.getData("text");
+				<!--append dragged element into drop element-->
+				<!--dragged data is the ID of the dragged element ("drag1")-->
+				ev.target.appendChild(document.getElementById(data));
+			}
+		</script>
+	</head>
+
+		
+	<body> 
+		<!--Contenteditable attribute, when true, allows a user to edit any element in the HTML code-->
+		<h1 contenteditable="true">Hi, this can be edited</h1>
+		
+		
+		<!--ondragover is attribute event that specifies where the dragged data can be dropped-->
+		<div id="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+		
+		</div>
+		
+		<!--to make an element draggable, you must set the 'draggable' attribute to true-->
+		<!--ondragstart="drag(event)" calls function drag(event), which specifies what data to be dragged-->
+		<img id="drag1" src="Cover Photo.jpg" draggable="true" ondragstart="drag(event)" width="291" height="145">
+	</body>
+	
+</html>
