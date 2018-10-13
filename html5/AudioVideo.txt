@@ -1,0 +1,29 @@
+<video src="yoursourcehere.com/test.mp4" autoplay loop controls>
+	//insert text here if video is not working
+</video>
+
+<audio src="your audio mp3" file goes here" autoplay loop controls>
+</audio>
+
+You can use JavaScript to make these files play on command.
+
+Example:
+
+// Play audio with button using JavaScript
+<audio id="myaudio" src="test.mp3">Your browser does not support audio.</audio>
+
+<button onClick="document.getElementbyId("myaudio").play()>Play</button>
+
+// Play video with JS
+<script>
+	var v = getElementbyId("myvideo");
+	v.play();
+	
+	v.pause();
+	
+	v.stop();
+	
+	v.volume+=0.1 
+	
+	v.volume-=0.1
+</script>
