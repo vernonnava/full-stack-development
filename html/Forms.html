@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<title>Forms</title>
+	
+	<body>
+		<form action="POST">
+			<h1>Registration Form</h1>
+			<!--Enter label of the field-->
+			<label>Name:</label><br>
+			<input type="text" name="name" required>
+			
+			<br><br>
+			
+			<label>E-mail</label><br>
+			<input type="email" name="email">			
+
+			<br><br>
+			
+			<label>Password</label><br>
+			<input type="password" name="password">	
+			
+			<br><br>
+			
+			<label>Location</label><br>
+			<select name="location">
+				<option value="Toronto">Toronto</option>
+				<option value="Montreal">Montreal</option>
+				<option value="Ottawa" selected>Ottawa</option>
+			</select>
+			
+			<br><br>
+			
+			<label>Gender</label><br>
+			<input type="radio" name="gender" value="Male">Male
+			<input type="radio" name="gender" value="Female">Female
+			
+			<br><br>
+			
+			<label>Interests</label><br>
+			<input type="checkbox" name="interests" value="basketball">Basketball
+			<input type="checkbox" name="interests" value="baseball">Baseball
+			
+			
+			<br><br>
+			
+			<input type="submit" value="Submit">
+			
+		</form>
+	</body>
+
+
+</html>
