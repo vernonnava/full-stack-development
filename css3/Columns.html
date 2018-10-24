@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Columns</title>
+	
+		<style>
+			article {
+				column-count:3;
+				column-gap:30px;
+				column-rule: solid 1px coral;
+			}
+			
+			article h1 {
+				column-span:all;
+			}
+			
+			.textbox1 {
+				border: 2px solid;
+				padding:20px;
+				width:300px;
+				overflow:auto;
+				resize:both;
+			}
+			
+			.textbox2 {
+				margin:20px;
+				padding:10px;
+				width:300px;
+				height:100px;
+				border:1px solid black;
+				outline:1px solid red;
+				outline-offset:10px;
+			}
+			
+			.flex-container {
+				display:flex;
+				flex-direction:column-reverse;
+				justify-content: space-between;
+				width:400px;
+				height:250px;
+				background-color:black;
+			}
+			
+			.flex-item {
+				background-color:lightblue;
+				width:100px;
+				height:100px;
+				margin:10px;
+			}
+			
+			.first {
+				order:-1;
+			}
+		</style>
+	</head>
+
+	
+	<body>
+		<article>
+			<h1>Article Title</h1>
+			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</article>
+	
+		<br>
+		
+		<div class="textbox1">This is textbox1</div>
+		<div class="textbox2">This has a 10px outline</div>
+		
+		<div class="flex-container">
+			<div class="flex-item">flex item 1</div>
+			<div class="flex-item first">flex item 2</div>
+			<div class="flex-item">flex item 3</div>
+		</div>
+	</body>
+</html>
