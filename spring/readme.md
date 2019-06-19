@@ -39,7 +39,63 @@ Spring Development Process
 Spring Bean - a java object
 	- Java objects created by Spring container, then Spring refers to them as "Spring Beans"
 	- created from normal Java classes like Java objects
-	
 
+Q: Why do we specify the Coach interface in getBean()?
+	For example: Coach theCoach = context.getBean("myCoach", Coach.class);
 	
+A: When we pass the interface to the method, Spring will cast the object for you. Essentially, it will throw an exception. 
 
+# ---------------------------------------------------- #
+	
+## Section 5: Spring Dependency Injection - XML Configuration ##
+
+# Dependency Injection #
+
+Dependency Inversion Principle - the client delegates calls to another object the responsibility of providing its dependencies
+
+Primary Functions
+	a) Create and manage objects (Inversion of Control)
+	b) Inject object's dependencies (Dependency Injection)
+	
+Types of injection in Spring
+	a) Constructor injection
+	b) Setter injection
+	
+Development Process - Constructor Injection
+	1) Define dependency interface and class
+	
+	public interface FortuneService { public string getFortune(); }
+	
+	public class HappyFortuneService implements FortuneService {
+		// method implemented from interface is used by class
+		public String getFortune() {
+			return "Today is your lucky day!";
+		}
+	
+	}
+
+	2) Create constructor in class for injections
+	
+	public class BaseballCoach implements Coach {
+	
+		private FortuneService fortuneService;
+		
+		public BaseballCoach(FortuneService theFortuneService) {
+			fortuneService = theFortuneService;
+		}
+	
+	}
+	
+	3) Configure dependency injection in Spring config file
+	
+		a) create a bean for FortuneService
+		b) inject dependency under constructor injection
+		
+		applicationContext.xml
+		
+		<bean id="myFortuneService" class="com.vernonnava.springdemo.HappyFortuneService"></bean>
+		// equivalent to --> HappyFortuneService myFortuneService = new HappyFortuneService();
+		
+		
+		<bean id="myCoach" class="com.vernonnava.springdemo.BaseballCoach"> <constructor-arg ref="myFortuneService" /></bean>
+		// Baseball myCoach = new BaseballCoach(myFortuneService);

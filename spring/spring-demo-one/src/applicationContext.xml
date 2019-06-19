@@ -20,7 +20,7 @@
  	</bean>
 
     <bean id="myCoach"
-        class="com.vernonnava.springdemo.BaseballCoach">
+        class="com.vernonnava.springdemo.TrackCoach">
         <constructor-arg ref="myFortuneService" />
     </bean>
 
